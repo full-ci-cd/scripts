@@ -45,9 +45,9 @@ done
 if [[ "$(docker ps -a | grep $NAME | wc -l )" == "0" ]];then 
 
 	## starting docker containers
-	docker run -ti $(echo $DOCKER_CENTOS_RUN_CUSTOM_OPTIONS) --name master_a_$(echo "$NAME")  -d -p "$(shuf -i 2000-65000 -n 1 )":22 fullcicd/common_centos:0.1.3 $DOCKER_CENTOS_RUN_CUSTOM_COMMAND
+	docker run -ti $(echo $DOCKER_CENTOS_RUN_CUSTOM_OPTIONS) --name master_a_$(echo "$NAME")  -d -p "$(shuf -i 2000-65000 -n 1 )":22 fullcicd/common_centos:0.1.4 $DOCKER_CENTOS_RUN_CUSTOM_COMMAND
 	docker run -ti $(echo $DOCKER_UBUNTU_RUN_CUSTOM_OPTIONS) --name master_j_$(echo "$NAME")  -d -p "$(shuf -i 2000-65000 -n 1 )":22 fullcicd/common_ubuntu:0.1.3 $DOCKER_UBUNTU_RUN_CUSTOM_COMMAND
-	docker run -ti $(echo $DOCKER_CENTOS_RUN_CUSTOM_OPTIONS) --name kube-01_$(echo "$NAME")  -d -p "$(shuf -i 2000-65000 -n 1 )":22 fullcicd/common_centos:0.1.3 $DOCKER_CENTOS_RUN_CUSTOM_COMMAND
+	docker run -ti $(echo $DOCKER_CENTOS_RUN_CUSTOM_OPTIONS) --name kube-01_$(echo "$NAME")  -d -p "$(shuf -i 2000-65000 -n 1 )":22 fullcicd/common_centos:0.1.4 $DOCKER_CENTOS_RUN_CUSTOM_COMMAND
 
 	if [[ "$(echo $CHECKER_SOFT_MODE)" == "no" ]];then
   		## applying ansible states
